@@ -1,0 +1,41 @@
+{
+  "name": "dynamic_portfolio_backend",
+  "version": "1.0.0",
+  "description": "It's the server or backend of the dynamic portfolio project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VijayMayhul/dynamic-portfolio-backend.git"
+  },
+  "keywords": [
+    "dynamic",
+    "portfolio",
+    "with",
+    "export",
+    "to",
+    "pdf"
+  ],
+  "author": "vijay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VijayMayhul/dynamic-portfolio-backend/issues"
+  },
+  "homepage": "https://github.com/VijayMayhul/dynamic-portfolio-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.0",
+    "validator": "^13.11.0"
+  }
+}
