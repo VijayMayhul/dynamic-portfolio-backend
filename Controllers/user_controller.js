@@ -8,6 +8,15 @@ import PortfolioDetails from "../Models/portfolioDetails_schema.js";
 
 dotenv.config();
 
+export const serverConnect = async (req, res)=>{
+    try {
+        res.status(200).json({message : `Dynamic portfolio server connected successfully!`});
+    } catch (error) {
+        console.log(`Error in connecting server : ${error}`);
+        res.status(500).json({error : `Failed to connect the server, Internal Server Error`});
+    }
+}
+
 export const registerUser = async (req, res)=>{
     try {
 

@@ -1,10 +1,12 @@
 import express from "express";
-import { createPortfolio, deletePortfolio, forgotPassword, getUserHome, getUserPortfolio, loginUser, registerUser, resetPassword, updatePortfolio } from "../Controllers/user_controller.js";
+import { createPortfolio, deletePortfolio, forgotPassword, getUserHome, getUserPortfolio, loginUser, registerUser, resetPassword, serverConnect, updatePortfolio } from "../Controllers/user_controller.js";
 import { resetAuthMiddleware } from "../Middlewares/reset_password_auth_middleware.js";
 import { userAuthMiddleware } from "../Middlewares/user_auth_middleware.js";
 
 
 const router = express.Router();
+
+router.get('/', serverConnect);
 
 router.post('/register-user', registerUser);
 router.post('/login-user', loginUser);
