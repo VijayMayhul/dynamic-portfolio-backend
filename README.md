@@ -39,7 +39,7 @@ I used Postman to test my api endpoints are working fine.
 
 ## API Documentation
 
-[Click here to view API Documentation]()
+[Click here to view API Documentation](https://documenter.getpostman.com/view/24200691/2sA3QsBCt8)
 
 ## Setup
 
