@@ -1,7 +1,13 @@
+//importing mongoose to create schema
 import mongoose from "mongoose";
 
+//defining user schema
 const userSchema = new mongoose.Schema({
-    userName : {
+    firstName : {
+        type: String,
+        required: true
+    },
+    lastName : {
         type: String,
         required: true
     },
@@ -12,14 +18,6 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        validate: {
-            validator: function(value) {
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(value);
-            },
-            message: props => `${props.value} is not a valid email address`
-        }
     },
     password : {
         type: String,
@@ -32,6 +30,8 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+//creating model for user
 const User = mongoose.model('User', userSchema);
 
+//exporting the user model
 export default User;

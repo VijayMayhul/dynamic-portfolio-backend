@@ -1,58 +1,40 @@
+//importing mongoose to create schema
 import mongoose from "mongoose";
 
+//defining portfolio schema
 const portfolioDetailsSchema = new mongoose.Schema({
     template: {
         type: String,
         required: true
     },
     home: {
-        welcomeText: String,
-        name: String,
-        designation: String,
-        shortIntro: String,
-        img: {
-            url: {
-                type: String,
-                required: true,
-                validate: {
-                    validator: function(value) {
-                        // Validate URL format (example: https://example.com/image.jpg)
-                        const urlRegex = /^(https?):\/\/[^\s$.?#].[^\s]*$/;
-                        return urlRegex.test(value);
-                    },
-                    message: props => `${props.value} is not a valid URL`
-                }
-            },
-            contentType: {
-                type: String,
-                required: true
-            }
+        welcomeText: {
+            type: String,
+            required: true
         },
-        socialMedia: {
-            linkedinUrl: String,
-            githubUrl: String,
-            twitterUrl: String,
-            telegramUrl: String,
-            facebookUrl: String,
-            whatsappUrl: String
-        }
+        firstName: {
+            type: String,
+            required: true
+        },
+        lastName: {
+            type: String,
+            required: true
+        },
+        designation: {
+            type: String,
+            required: true
+        },
+        shortIntro: {
+            type: String,
+            required: true
+        },
     },
     about: {
-        briefIntro: String,
-        resume: {
-            url: {
-                type: String,
-                required: true,
-                validate: {
-                    validator: function(value) {
-                        // Validate URL format (example: https://example.com/resume.pdf)
-                        const urlRegex = /^(https?):\/\/[^\s$.?#].[^\s]*$/;
-                        return urlRegex.test(value);
-                    },
-                    message: props => `${props.value} is not a valid URL`
-                }
-            }
-        }
+        briefIntro: {
+            type: String,
+            required: true
+        },
+        resumeUrl: String,
     },
     skills: [{
         type: String,
@@ -64,15 +46,25 @@ const portfolioDetailsSchema = new mongoose.Schema({
             required: true
         },
         to: {
-            type: Date,
-            default: null // Use null if the user is still working in this position
+            type: mongoose.Schema.Types.Mixed,
+            required: true
         },
         designation: {
             type: String,
             required: true
         },
-        companyName: String,
-        workDetails: String
+        companyName: {
+            type: String,
+            required: true
+        },
+        location : {
+            type: String,
+            required: true
+        },
+        workDetails: {
+            type: String,
+            required: true
+        }
     }],
     education: [{
         from: {
@@ -80,8 +72,8 @@ const portfolioDetailsSchema = new mongoose.Schema({
             required: true
         },
         to: {
-            type: Date,
-            default: null // Use null if the user is still studying
+            type: mongoose.Schema.Types.Mixed,
+            required: true
         },
         courseName: {
             type: String,
@@ -90,66 +82,47 @@ const portfolioDetailsSchema = new mongoose.Schema({
         institutionName: {
             type: String,
             required: true
-        }
+        },
+        location:{
+            type: String,
+            required: true
+        },
+        courseInfo: String,
     }],
     projects: [{
         projectName: {
             type: String,
             required: true
         },
-        projectImgUrl: {
-            type: String,
-            required: true,
-            validate: {
-                validator: function(value) {
-                    // Validate URL format (example: https://example.com/project-image.jpg)
-                    const urlRegex = /^(https?):\/\/[^\s$.?#].[^\s]*$/;
-                    return urlRegex.test(value);
-                },
-                message: props => `${props.value} is not a valid URL`
-            }
-        },
         techUsed: [{
             type: String,
-            required: true
         }],
         projectDetails: {
             type: String,
             required: true
         },
-        projectLink: {
-            type: String,
-            required: true,
-            validate: {
-                validator: function(value) {
-                    // Validate URL format (example: https://github.com/user/project)
-                    const urlRegex = /^(https?):\/\/[^\s$.?#].[^\s]*$/;
-                    return urlRegex.test(value);
-                },
-                message: props => `${props.value} is not a valid URL`
-            }
-        }
+        projectLink:String,
+        
     }],
     contact: {
-        phone: {
+        phoneNo: {
             type: String,
             required: true
         },
         email: {
             type: String,
             required: true,
-            validate: {
-                validator: function(value) {
-                    // Validate email format
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    return emailRegex.test(value);
-                },
-                message: props => `${props.value} is not a valid email address`
-            }
         },
         location: {
             type: String,
             required: true
+        },
+        socialMedia: {
+            linkedinUrl: String,
+            githubUrl: String,
+            telegramUrl: String,
+            facebookUrl: String,
+            instagramUrl: String
         }
     },
     user_id: {
@@ -159,7 +132,8 @@ const portfolioDetailsSchema = new mongoose.Schema({
     }
 });
 
-
+//creating model for portfolio
 const PortfolioDetails = mongoose.model('PortfolioDetails', portfolioDetailsSchema);
 
+//exporting the portfolio model
 export default PortfolioDetails;
