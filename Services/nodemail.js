@@ -51,7 +51,7 @@ export const mail = async (userEmail, sub, body) => {
             };
         //sending mail
         await mailTransporter.sendMail(details);
-        console.log(`Mail Sent Successfully!`);
+        // console.log(`Mail Sent Successfully!`);
         return true;
     } catch (error) {
         //sending error, if any error happened

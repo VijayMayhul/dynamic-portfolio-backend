@@ -246,7 +246,7 @@ export const createPortfolio = async (req, res) => {
         await user.save();
 
         //sending success response      
-        return res.status(201).json({ message: 'Portfolio Data Added Successfully', newPortfolioData: portfolioInfo });
+        return res.status(201).json({ message: 'Portfolio Data Created Successfully', newPortfolioData: portfolioInfo });
 
     } catch (error) {
         //sending error response, if any error happened
