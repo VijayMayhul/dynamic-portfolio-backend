@@ -1,36 +1,60 @@
 
-# Dynamic-Portfolio-API
+# Dynamic-Portfolio-Backend
 
-This is Dynamic-Portfolio API which was designed by me. Through this API we can do user login and CRUD things in portfolio. It's Guvi-Zen class Capstone Project.
+This is the Dynamic-Portfolio API, designed and developed as part of the Guvi-Zen class Capstone Project. This API handles user authentication and portfolio management, allowing for seamless CRUD operations on portfolio data.
 
 ## Tech Stack
 
-- NodeJs
-- ExpressJS
+- Node.js
+- Express.js
 - Router()
 - json()
-- cors
+- CORS
 - Validator
 - bcrypt
-- JWT
+- JWT (JSON Web Tokens)
 - dotenv
 - nodemailer
 - Nodemon
 - Mongoose
-- Atlas MongoDB
-- postman
+- MongoDB Atlas
+- Postman
 
 ## Features
 
-- Through this Portfolio API, user can register, login, reset password as well as get user info, create portfolio, update portfolio, delete portfolio and get portfolio details too.
+- <b>User Authentication</b> : Secure user registration and login using bcrypt for password hashing and JWT for authentication tokens.
+- <b>Password Management</b> : Users can reset their passwords securely.
+- <b>User Info Management</b> : Retrieve and update user profile information.
+- <b>Portfolio CRUD Operations</b> : Create, read, update, and delete portfolio entries.
+- <b>Email Notifications</b> : Integrated email notifications using nodemailer for account verification and password reset processes.
+- <b>Robust Validation</b> : Input validation using Validator to ensure data integrity.
+- <b>CORS Handling</b> : Configured CORS to allow secure cross-origin requests.
+
 
 ## Lessons Learned
 
-Through this task I learned to create express server, API endpoints and usage of cors, json(), JWT, bcrypt, validator and nodemailer. And also, I learned to use postman-API Testing Tool and api documentation.
+<b>Express Server and API Endpoints</b> : 
+- <b>Express Server</b> : Learned to create a robust and scalable Express server to handle API requests and responses.
+- <b>API Endpoints</b> : Gained experience in designing and implementing RESTful API endpoints for various operations.
 
-## Testing Tool
+<b>Security and Authentication</b> : 
+- <b>JWT</b> : Implemented JWT for secure authentication, ensuring only authorized users can access certain endpoints.
+- <b>bcrypt</b> : Used bcrypt for hashing passwords, enhancing the security of user credentials.
+- <b>Validator</b> : Integrated input validation to prevent malicious data from being processed by the API.
 
-I used Postman to test my api endpoints are working fine.
+<b>Email Integrations</b> : 
+- <b>nodemailer</b> : Learned to send emails for account verification and password reset processes, improving user experience and security.
+
+<b>Environment Configuration</b> : 
+- <b>dotenv</b> : Utilized dotenv for environment variable management, keeping sensitive information secure and configurable.
+
+<b>Database Management</b> : 
+- <b>Mongoose</b> : Mastered using Mongoose for MongoDB interactions, including schema design and CRUD operations.
+- <b>MongoDB Atlas</b> : Leveraged MongoDB Atlas for a scalable, cloud-based database solution.
+
+<b>API Testing and Documentation</b> : 
+- <b>Postman</b> : Used Postman extensively for testing API endpoints, ensuring they work as expected and handle edge cases properly.
+- <b>API Documentation</b> : Documented API endpoints to provide clear and concise instructions for future developers and users.
 
 ## Website
 
