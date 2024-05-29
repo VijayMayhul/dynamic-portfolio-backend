@@ -25,7 +25,8 @@ const port = process.env.MYPORT;
 
 
 //defining which domain to use our server
-app.use(cors({ origin: process.env.FRONT_END_BASE_URL }));
+// app.use(cors({ origin: process.env.FRONT_END_BASE_URL }));
+app.use(cors());
 //parsing json body values
 app.use(express.json());
 
