@@ -16,7 +16,7 @@ export const userAuthMiddleware = async (req, res, next)=>{
 
     //checking token is missing
     if (!token) {
-        return res.status(401).json({ message: "Token is missing" });
+        return res.status(401).json({ error: "Token is missing" });
     }
     try {
         //checking the token

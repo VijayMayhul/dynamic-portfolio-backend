@@ -38,18 +38,18 @@ export const registerUser = async (req, res)=>{
 
         //checking every value is given or not. if not returning error
         if(!firstName || !lastName || !dateOfBirth || !email || !password){
-            return res.status(400).json({ message: 'Please fill all required fields' });
+            return res.status(400).json({ error: 'Please fill all required fields' });
         }
 
         //validating the email
         if (!validator.isEmail(email)) {
-            return res.status(400).json({ message: 'Please provide a valid email address.' });
+            return res.status(400).json({ error: 'Please provide a valid email address.' });
         }
 
         //checking the email that already used
         const existingUser = await User.findOne({ email: email });
         if (existingUser) {
-            return res.status(409).json({ message: 'An account with this email already exists. Please use a different email.' });
+            return res.status(409).json({ error: 'An account with this email already exists. Please use a different email.' });
         }
 
         //hashing password
@@ -78,13 +78,13 @@ export const loginUser = async(req, res)=>{
 
         //validating the email
         if (!validator.isEmail(email)) {
-            return res.status(400).json({ message: 'Please provide a valid email address.' });
+            return res.status(400).json({ error: 'Please provide a valid email address.' });
         }
 
         //checking the user is a registered user
         const user = await User.findOne({email:email});
         if(!user){
-            return res.status(401).json({message : 'User Not Found!'});
+            return res.status(401).json({error : 'User Not Found!'});
         }
 
         //checking the password
@@ -92,7 +92,7 @@ export const loginUser = async(req, res)=>{
 
         //invalid password means, give error response
         if(!checkPassword){
-            return res.status(400).json({message : 'Invalid Password!'});
+            return res.status(400).json({error : 'Invalid Password!'});
         }
         
         //creating token
@@ -119,13 +119,13 @@ export const forgotPassword = async (req, res) => {
 
         //validating the email
         if (!validator.isEmail(email)) {
-            return res.status(400).json({ success: false, message: 'Please provide a valid email address.' });
+            return res.status(400).json({ success: false, error: 'Please provide a valid email address.' });
         }
 
         //checking the user is a registered user
         const user = await User.findOne({ email: email });
         if (!user) {
-            return res.status(404).json({ success: false, message: 'User not found.' });
+            return res.status(404).json({ success: false, error: 'User not found.' });
         }
 
         //creating token
@@ -156,7 +156,7 @@ export const resetPassword = async (req, res) => {
 
         //checking both passwords are same
         if (password !== confirmPassword) {
-            return res.status(400).json({ message: 'Passwords does not match' });
+            return res.status(400).json({ error: 'Passwords does not match' });
         }
 
         //hashing password
@@ -165,7 +165,7 @@ export const resetPassword = async (req, res) => {
         //getting the user
         const user = await User.findById(req.user._id);
         if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(404).json({ error: 'User not found' });
         }
 
         //updating the password to the user
@@ -191,7 +191,7 @@ export const getUserHome = async (req, res) => {
 
         //checking the user
         if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(404).json({ error: 'User not found' });
         }
 
         //sending success response
@@ -387,12 +387,12 @@ export const saveContactPersonInfo = async (req, res)=>{
 
         //checking all fields
         if(!personName || !email || !phoneNo || !subject || !description){
-            return res.status(400).json({ message: 'Please fill all required fields' });
+            return res.status(400).json({ error: 'Please fill all required fields' });
         }
 
         //validating email
         if (!validator.isEmail(email)) {
-            return res.status(400).json({ message: 'Please provide a valid email address.' });
+            return res.status(400).json({ error: 'Please provide a valid email address.' });
         }
 
         //saving the contacted person info
