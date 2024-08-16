@@ -35,10 +35,8 @@ app.use(express.json());
 //calling connectdb to connect dbs
 connectDB();
 
-
 //Initialize routing
 app.use('/', userRouter)
-
 
 //Listening to the server Port
 app.listen(port,()=>{
